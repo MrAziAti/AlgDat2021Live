@@ -1,3 +1,5 @@
+package Uke1;
+
 import java.util.Arrays;
 
 public class MyFirstSort {
@@ -24,6 +26,8 @@ public class MyFirstSort {
             for (int i = 0; i < vals.length; i++) {
                 System.out.print(vals[i] + ", ");
             }
+
+
         }
     }
 
@@ -44,6 +48,31 @@ public class MyFirstSort {
                 index = i;
             }
         }
+        return index;
+
+    }
+
+    /**
+     * Findmax - finner index til største tall i et array,
+     * men søker bare innenfor tallene i [fra, til)
+     */
+    public static int findMax1(int[] values, int fra, int til) {
+        //Initialiser ved å se på første "kort"
+        //Dette er det største tallet jeg har funnet
+        //så langt
+        int index = fra;
+        int max_value = values[fra];
+
+        //Sjekk at grensene for løkken er riktig.
+        // [1, values.length)
+        for (int i=fra+1; i<til; ++i) {
+            //Sjekk om vi har funnet nytt største tall
+            if (values[i] > max_value) {
+                max_value = values[i];
+                index = i;
+            }
+        }
+
         return index;
     }
 }
