@@ -18,6 +18,13 @@ public class TournamentTree {
 
         void print(){
             System.out.print(value + ", ");
+            if(this.left_child != null) {
+                this.left_child.print();
+
+            }
+            if(this.right_child !=null){
+                this.right_child.print();
+            }
         }
     }
 
@@ -47,12 +54,14 @@ public class TournamentTree {
 
         Node semi_1 = playMatch(z,c);
         Node semi_2 = playMatch(f,k);
-        System.out.println("Semifinale vinnere");
-        semi_1.print();
-        semi_2.print();
-        System.out.println();
+
+        // System.out.println("Semifinale vinnere");
+        //semi_1.print();
+        //semi_2.print();
+        //System.out.println();
         Node winner = playMatch(semi_1, semi_2);
-        System.out.println("Vinner av match");
+        System.out.println("Turneringstreet i pre-orden");
+        //Forventer: zzzckfk
         winner.print();
 
     }
