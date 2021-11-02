@@ -101,6 +101,16 @@ public class VisitorPatternTest {
             return 0;
         }
     }
+    public static class Asc
+            implements Komparator<Integer> {
+
+        public int compare(Integer a, Integer b) {
+            if(a > b){
+                return -1;
+            }
+            return 1;
+        }
+    }
 
     /**
      * Denn funksjonen finner største verdi values
@@ -134,14 +144,13 @@ public class VisitorPatternTest {
             //Fortsett
         }
     }
-        public static void main (String[]args){
+        public static void main (String[]args) {
             Person[] p = {new Person("Petter", "Pettersen"),
                     new Person("Kari", "Pettersen"),
                     new Person("Nils", "Abrahamsen"),
                     new Person("Tor", "Toresen")};
 
             System.out.println("Hello World");
-
 
 
             //0 Lag comparator-objektet
@@ -151,6 +160,8 @@ public class VisitorPatternTest {
             OddePartallKomparator odd_Partall = new OddePartallKomparator();
             OddePartallKomparatorAsc oddAsc = new OddePartallKomparatorAsc();
 
+            Asc asc = new Asc();
+
             //1 Lage sorterings-funksjonen som tar inn både person-arrayet og en sammenlikningsfunksjon
 
             System.out.println("Før: " + Arrays.toString(p));
@@ -159,22 +170,22 @@ public class VisitorPatternTest {
             sort(p, comp_dec);
             System.out.println("Etter: (Deseining): " + Arrays.toString(p));
 
-            Integer [] integers = {9,8,7,6,5,4,3,2,1,0};
+            Integer[] integers = {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
 
             //Vil sortere sånn at vi får oddetall til venstre og partall til høyre.
             //Partall og oddetall skal være inbyrdes sortert.
 
             System.out.println("Før sortering: " + Arrays.toString(integers));
-            sort(integers,odd_Partall);
+            sort(integers, odd_Partall);
             System.out.println("Etter sortering: " + Arrays.toString(integers));
 
-            sort(integers,oddAsc);
+            sort(integers, oddAsc);
             System.out.println("Etter sortering: " + Arrays.toString(integers));
 
+            sort(integers, asc);
+            System.out.println("Etter sortering: " + Arrays.toString(integers));
 
 
         }
-
-
     }
 
